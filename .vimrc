@@ -25,5 +25,8 @@ set background=dark
 
 "For LaTex within vim
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-let g:livepreview_previewer = "open -a epdfview"
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+" let g:livepreview_previewer = 'open -a epdfview'
+let g:livepreview_previewer = 'epdfview'
+autocmd Filetype tex setl updatetime=1
