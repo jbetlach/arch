@@ -2,7 +2,7 @@ set from = "honza@betlach.name"
 set realname = "Jan Betlach"
 
 set imap_user = "honza@betlach.name"
-set imap_pass = "1Napoleon"
+set imap_pass = ""
 
 set smtp_url = "smtp://$imap_user@smtp.1and1.com:587/"
 set smtp_pass = $imap_pass
