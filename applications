@@ -11,6 +11,8 @@ rsync
 urxvt
 mpv
 youtube-dl
+scrot
+feh
 gparted
 pcmanfm
 grsync
@@ -41,3 +43,5 @@ guvcview
 vlc
 audacity
 audacious / clementine
+ghostwriter
+
