@@ -1,0 +1,51 @@
+
+# Full system update Calculate
+cl-update
+
+# Full system update
+emerge --sync
+eix-sync
+layman -S
+
+# Update Emerge World set
+emerge --ask --update --deep --newuse @worldb
+
+# Package listing
+qlist -IRv
+
+# Search package
+emerge --search package
+
+# List what will be installed without instaling
+emerge --pretend --verbose package
+emerge -pv package
+
+# Install package
+emerge --ask --verbose package
+emerge -av package
+
+# Pretend remove package
+emerge --pretend --verbose --unmerge package
+emerge -pvC package
+
+# Check dependencies needed to be removed with package
+emerge -pv --depclean package
+
+# Remove package
+emerge --unmerge package
+emerge -C package
+
+# Remove packages no longer needed
+emerge -av --depclean
+
+# Resolve dependencies before depclean
+emerge --update --deep @world
+emerge --update --newuse --deep @world  (with build dependencies)
+
+# Package upgrades
+emerge -uDU --keep-going --with-bdeps=y @world
+
+# Manage configuration changes
+dispatch-conf
+
+
