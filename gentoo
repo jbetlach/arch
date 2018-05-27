@@ -8,7 +8,7 @@ eix-sync
 layman -S
 
 # Update Emerge World set
-emerge --ask --update --deep --newuse @worldb
+emerge --ask --update --deep --newuse @world
 
 # Package listing
 qlist -IRv
