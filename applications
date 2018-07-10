@@ -13,6 +13,7 @@ mpv
 youtube-dl
 scrot
 feh
+pandoc
 gparted
 pcmanfm
 grsync
@@ -24,9 +25,11 @@ darktable
 inkscape
 nomacs
 scribus
+calibre
+sigil
 evince
 gummi
-libreoffice
+libreoffice (w. Writer2ePub)
 thundrrbird
 firefox
 chromium
