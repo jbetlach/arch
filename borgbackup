@@ -10,7 +10,7 @@ borg init -e repokey --remote-path=borg1 12224@ch-s012.rsync.net:borgbackup/Docu
 borg create --remote-path=borg1 --progress --stats 12224@ch-s012.rsync.net:borgbackup/Documents::Documents_20180802 /home/jan/Documents
 
 # List backups
-12224@ch-s012.rsync.net:borgbackup/Documents
+borg list --remote-path=borg1 12224@ch-s012.rsync.net:borgbackup/Documents
 
 # Delete selected backup
 
