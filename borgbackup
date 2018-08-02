@@ -1,0 +1,54 @@
+
+# Create directory for backup
+ssh 12224@ch-s012.rsync.net mkdir borgbackup
+ssh 12224@ch-s012.rsync.net mkdir borgbackup/Documents
+
+# Initialize repository
+borg init -e repokey --remote-path=borg1 12224@ch-s012.rsync.net:borgbackup/Documents
+
+# Create backup
+borg create --remote-path=borg1 --progress --stats 12224@ch-s012.rsync.net:borgbackup/Documents::Documents_20180802 /home/jan/Documents
+
+# List backups
+borg list
+
+# Delete selected backup
+
+# Cleaning old backups (schedule)
+borg prune --keep-daily 7 --keep-weekly 8 --keep-monthly 12
+
+# View files in backup
+borg list ::Documents_20180802 | head
+
+# Restore form backup
+borg extract ::archive
+borg extract ::Documents_20180802
+# will extract to original destination. If somewhere else, then cd /mnt
+# extract just some file
+borg extract ::archive file/to/restore
+borg extract ::Documents_20180802 file/to/restore
+
+
+
+
+# Example backup script
+#!/bin/bash
+# Backup a folder to a remote address using borg.
+# Usage: backup-borg.sh
+# To restore: borg extract $BORG_REPO::computer-and-date
+
+set -eu
+export BORG_REPO='username@remote.host.address:borg/repo/path'
+export BORG_PASSPHRASE='your password'
+export BORG_REMOTE_PATH=/path/to/remote/borg
+
+/usr/bin/borg create ::$(hostname)-$(date) /folder/to/back/up
+/usr/bin/borg prune ::$(hostname)-$(date) --keep-daily=14 --keep-monthly=6
+
+
+
+
+
+
+
+
